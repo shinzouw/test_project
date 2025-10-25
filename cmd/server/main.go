@@ -15,6 +15,8 @@ func main() {
 
 	r.HandleFunc("/tasks", handlers.GetTasks).Methods("GET")
 	r.HandleFunc("/tasks/{id}", handlers.GetTask).Methods("GET")
-	r.HandleFunc("/tasks", handlers.GetTasks).Methods("POST")
+	r.HandleFunc("/tasks", handlers.PostTask).Methods("POST")
+	r.HandleFunc("/tasks/{id}", handlers.DeleteTask).Methods("DELETE")
+	r.HandleFunc("/tasks", handlers.PutTask).Methods("PUT")
 	http.ListenAndServe(":8080", r)
 }
